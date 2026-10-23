@@ -16,10 +16,9 @@ def main():
     parser.add_argument('--models',type=Path,default=Path('models'))
     parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args()
-    selected={'9765b53bafcb3121c9d1cb0f09ce9d08','8e10c56ad63fd0dda709762a0024cf54',
-              '9324e60e0d6ef9585b5d4a1c4f274843','4546676515'}
+    selected_prefixes={'9765b53baf','8e10c56ad6','9324e60e0d','4546676515'}
     samples=[s for s in load_samples(args.reference,args.reviewed,args.backup_root)
-             if any(s.asset_id.startswith(key[:10]) for key in selected)]
+             if any(s.asset_id.startswith(key) for key in selected_prefixes)]
     assert len(samples)==4
     records=[]
     with patch('requests.sessions.Session.request',side_effect=AssertionError('Unexpected HTTP request')), \
