@@ -11,8 +11,18 @@ if (-not (Test-Path -LiteralPath $iscc)) { throw 'Can Inno Setup 6 de tao bo cai
 if ($LASTEXITCODE -ne 0) { throw 'Install requirements-build.txt first' }
 & $python -m pytest
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
-& $python -m PyInstaller --noconfirm --clean packaging\TramCanOCRTrial.spec
-if ($LASTEXITCODE -ne 0) { throw 'PyInstaller failed' }
+# PowerShell 5 can report ordinary native stderr progress as an error when
+# the caller redirects the build log. Preserve the real tool exit code.
+$previousErrorPreference = $ErrorActionPreference
+try {
+    $ErrorActionPreference = 'Continue'
+    & $python -m PyInstaller --noconfirm --clean packaging\TramCanOCRTrial.spec 2>&1 |
+        ForEach-Object { Write-Output $_.ToString() }
+    $pyInstallerExit = $LASTEXITCODE
+} finally {
+    $ErrorActionPreference = $previousErrorPreference
+}
+if ($pyInstallerExit -ne 0) { throw "PyInstaller failed (exit $pyInstallerExit)" }
 & $iscc packaging\TramCanOCRTrial.iss
 if ($LASTEXITCODE -ne 0) { throw 'Inno Setup failed' }
 $installer = Join-Path $projectRoot 'dist\installer\TramCanOCRTrial-Setup-0.2.0-trial1.exe'
