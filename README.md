@@ -1,12 +1,30 @@
 # Trạm Cân QR — RapidOCR + PP-OCRv6
 
-Repo thử nghiệm riêng cho nhận diện số cân trên CPU Windows. Có CLI đọc ảnh,
-kiểm tra model offline, benchmark ảnh xưởng và báo cáo đối chứng. Chưa phải
-bộ cài thay thế phần mềm vận hành tại xưởng.
+Repo thử nghiệm riêng cho nhận diện số cân trên CPU Windows. Có **bộ cài chạy thử
+camera tại xưởng 0.2.0-trial1**, CLI đọc ảnh, benchmark và báo cáo đối chứng.
+Chưa phải bộ cài thay thế phần mềm vận hành tại xưởng.
 
 Repo này độc lập với `tram-can-qr-render-pilot` và `digit_detection_new`.
 Không đọc `.env`, DB hay cấu hình máy trạm; không có luồng ghi/sync dữ liệu.
 Ảnh và nhãn xưởng dùng tại máy kiểm tra, không commit lên GitHub.
+
+## Cài bản thử tại máy khách
+
+Tải **TramCanOCRTrial-Setup-0.2.0-trial1.exe** tại
+[Releases](https://github.com/huybitvvt/tram-can-qr-rapidocr/releases/tag/v0.2.0-trial1).
+Repo riêng tư: tải ở máy có quyền truy cập rồi chép file sang máy khách.
+
+Windows 10/11 x64; không cần cài Python, GPU hoặc tải model. Đóng phần mềm cân đang
+dùng camera → cài → mở **Tram Can OCR - Ban thu** → Camera 0 → **Mở camera**.
+Nếu tự chọn vùng sai, bấm **Chọn vùng số cân** rồi kéo bao trọn một dòng số.
+
+**Bản thử không lưu phiếu, ảnh, lịch sử hay cấu hình; không kết nối dữ liệu vận hành.**
+Vùng chọn và kết quả chỉ giữ trong RAM. Cài riêng, không ghi đè hai bản hiện tại.
+Chưa có tự động cập nhật. [Hướng dẫn tại xưởng](docs/CAI-BAN-THU.md).
+
+Chạy từ mã nguồn: `.venv\Scripts\python.exe -m tramcan_rapidocr.trial_app`.
+Build: cài `requirements-build.txt`, tải model small bằng lệnh bên dưới,
+cài Inno Setup 6 rồi chạy `powershell -File tools\build_trial.ps1`.
 
 ## Kết quả đã đo — 23/10/2026
 

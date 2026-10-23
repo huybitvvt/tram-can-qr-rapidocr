@@ -1,0 +1,9 @@
+TRAM CAN OCR - CHI CHAY THU TAI XUONG
+
+Khong luu phieu, anh, lich su can hay cau hinh. Khong ket noi DB, cloud hoac API.
+Khong dung so doc thu de chot phieu can. Luon doi chieu voi man hinh can that.
+
+Bo cai rieng, khong cap nhat hay thay the hai ban Gemini/YOLO dang van hanh.
+Dong phan mem can dang su dung cung camera truoc khi mo ban thu.
+
+Windows 10/11 64-bit. Khong can Python, GPU hoac Internet de doc can.

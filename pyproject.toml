@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tramcan-rapidocr"
-version = "0.1.0"
+version = "0.2.0"
 description = "Isolated CPU evaluation of RapidOCR + PP-OCRv6 on factory scale images."
 requires-python = ">=3.11"
 dependencies = [
@@ -12,6 +12,7 @@ dependencies = [
   "onnxruntime==1.31.0",
   "numpy==2.4.6",
   "opencv-python-headless==5.0.0.93",
+  "pillow==12.2.0",
 ]
 
 [project.optional-dependencies]
@@ -19,6 +20,9 @@ test = ["pytest==9.0.3"]
 
 [project.scripts]
 tramcan-ocr = "tramcan_rapidocr.cli:main"
+
+[project.gui-scripts]
+tramcan-ocr-trial = "tramcan_rapidocr.trial_app:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
