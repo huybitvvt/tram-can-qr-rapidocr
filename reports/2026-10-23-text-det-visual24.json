@@ -1,0 +1,59 @@
+{
+  "images": 24,
+  "groups": {
+    "oct21-visual": {
+      "images": 24,
+      "rapidocr": {
+        "correct": 21,
+        "wrong": 2,
+        "rejected": 1
+      },
+      "baseline_yolo": {
+        "wrong": 2,
+        "rejected": 11,
+        "correct": 11
+      },
+      "latency_ms": {
+        "p50": 1004.533750063274,
+        "p95": 1218.3798349520657,
+        "mean": 1047.3442541697295
+      }
+    }
+  },
+  "errors": 0,
+  "model": {
+    "ocr_version": "PP-OCRv6",
+    "rec_size": "small",
+    "det_size": "small",
+    "runtime": "CPUExecutionProvider",
+    "rapidocr": "3.10.0",
+    "onnxruntime": "1.31.0",
+    "models": {
+      "det": {
+        "file": "PP-OCRv6_det_small.onnx",
+        "sha256": "090f04abcd9d9a7498bc4ebf677e4cb9bdce1fe4197ddb7e529f1ef44e1ff94f",
+        "bytes": 9929594
+      },
+      "rec": {
+        "file": "PP-OCRv6_rec_small.onnx",
+        "sha256": "6f327246b50388f3c176ae304bd95767ea6dc0c9ae92153ef8cbe210b3c14884",
+        "bytes": 21234383
+      }
+    },
+    "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR",
+    "upstream_license": "Apache-2.0"
+  },
+  "strategy": "text-det",
+  "confidence": 0.85,
+  "cpu_threads": 2,
+  "startup_and_warmup_ms": 1577.830900088884,
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10",
+  "reference_sha256": "63d407074acc6616334bc615dd06d32b9c5074ab16759ba65ab9af3a1e54a4eb",
+  "reviewed_sha256": "b9cbe29b71200c38fb5e389f34741ab2969f1fe6fdd93e81774d73abbbab4636",
+  "scene_policy": "1600x1266 evidence -> top 1600x900 camera scene",
+  "parser": "fixed-2",
+  "decimal_places": 2,
+  "digit_substitutions": false,
+  "note": "Existing labels are not a verified training holdout; visual24 labels were produced by Codex before viewing predictions."
+}

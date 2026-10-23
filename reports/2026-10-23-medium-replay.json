@@ -1,0 +1,30 @@
+{
+  "images": 24,
+  "groups": {
+    "oct21-visual": {
+      "images": 24,
+      "rapidocr": {
+        "correct": 21,
+        "rejected": 2,
+        "wrong": 1
+      },
+      "baseline_yolo": {
+        "wrong": 2,
+        "rejected": 11,
+        "correct": 11
+      },
+      "latency_ms": {
+        "p50": 5626.9800999434665,
+        "p95": 8753.035464970162,
+        "mean": 5839.136545813138
+      }
+    }
+  },
+  "errors": 0,
+  "postprocessing_only": true,
+  "ocr_observations_sha256": "425171e795d5bcc3216774f8ad830104c6258a792c02e532a22dd34d2dc46052",
+  "parser": "fixed-2",
+  "confidence": 0.85,
+  "conflict_confidence": 0.7,
+  "latency_note": "Inference timings retained from original OCR run; no new inference was run."
+}

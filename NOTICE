@@ -1,0 +1,18 @@
+Tram Can QR RapidOCR
+Copyright 2026 Tram Can QR RapidOCR contributors.
+
+This repository contains an independent experimental scale OCR adapter and
+evaluation tools. It does not contain customer database/configuration files
+or photographs. Customer photos and labels are not licensed with this code.
+
+Third-party components:
+- RapidOCR 3.10.0, RapidOCR Authors, Apache-2.0.
+  https://github.com/RapidAI/RapidOCR
+- PP-OCRv6 models, Baidu and/or the applicable PaddleOCR rights holders,
+  Apache-2.0. Model identity is pinned in model_sources.json.
+  https://github.com/PaddlePaddle/PaddleOCR
+- ONNX Runtime, Microsoft, MIT.
+  https://github.com/microsoft/onnxruntime
+
+Copies of RapidOCR code/model notices are provided in licenses/.
+The remaining dependencies retain their respective upstream licenses.
